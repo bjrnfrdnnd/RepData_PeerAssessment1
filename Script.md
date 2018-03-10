@@ -86,7 +86,7 @@ kable(df_mean_median, "html",
 </table>
 
 ### Time series plot of the average number of steps taken
-We are going to purge the rows containing `NA` from the dataframe as we did in [the Histogram Section](#Histogram-of-the-total-number-of-steps-taken-each-day). We are also transforming the integer in the `interval` column to a proper POSIXct.
+We are going to purge the rows containing `NA` from the dataframe as we did in [the Histogram Section](#histogram-of-the-total-number-of-steps-taken-each-day). We are also transforming the integer in the `interval` column to a proper POSIXct.
 
 ```r
 require(ggplot2)
