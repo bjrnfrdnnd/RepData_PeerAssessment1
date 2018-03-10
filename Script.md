@@ -57,7 +57,7 @@ ggplot(df_steps_per_day,aes(x=total.Steps.Per.Day)) +
     theme(plot.title = element_text(hjust = 0.5))
 ```
 
-![plot of chunk unnamed-chunk-3](figure/unnamed-chunk-3-1.png)
+![plot of chunk chunk-Histogram-ignoring-missing-data](figure/chunk-Histogram-ignoring-missing-data-1.png)
 
 ### Report on the mean and median number of steps taken each day 
 
@@ -106,7 +106,7 @@ ggplot(df_average_steps_per_interval,aes(x=Time,y=average.Steps.Per.Interval)) +
     theme(plot.title = element_text(hjust = 0.5))
 ```
 
-![plot of chunk unnamed-chunk-5](figure/unnamed-chunk-5-1.png)
+![plot of chunk chunk-activity-patern-ignoring-missing-data](figure/chunk-activity-patern-ignoring-missing-data-1.png)
 
 ### Report on the 5-minute interval that, on average, contains the maximum number of steps
 
@@ -297,7 +297,7 @@ ggplot(df_steps_per_day,aes(x=total.Steps.Per.Day)) +
     theme(plot.title = element_text(hjust = 0.5))
 ```
 
-![plot of chunk unnamed-chunk-10](figure/unnamed-chunk-10-1.png)
+![plot of chunk chunk-histogram-with-imputed-data](figure/chunk-histogram-with-imputed-data-1.png)
 
 A comparison of the two histograms (one with imputed, one without imputed values) is shown in the next plot: 
 
@@ -315,15 +315,11 @@ ggplot(df_steps_per_day,aes(x=total.Steps.Per.Day, fill = `Has been imputed`)) +
     theme(plot.title = element_text(hjust = 0.5))
 ```
 
-```
-## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
-```
-
-![plot of chunk unnamed-chunk-11](figure/unnamed-chunk-11-1.png)
+![plot of chunk chunk-histogram-with-split-imputed-data](figure/chunk-histogram-with-split-imputed-data-1.png)
 
 We see that the imputation mainly affected non-extrem values of numbers of steps per day. Counts of numbers of steps per day have increased by at most 2 in the bin with nearly 10,000 steps. Most of the bins have not been affected.
 
-Finally, ww are reporting on the impact on mean and median values for the number of steps taken per day due to imputation.
+Finally, we are reporting on the impact on mean and median values for the number of steps taken per day due to imputation.
 
 
 ```r
@@ -386,18 +382,6 @@ require(ggplot2)
 require(dplyr)
 require(lubridate)
 require(kable)
-```
-
-```
-## Loading required package: kable
-```
-
-```
-## Warning in library(package, lib.loc = lib.loc, character.only = TRUE,
-## logical.return = TRUE, : there is no package called 'kable'
-```
-
-```r
 require(kableExtra)
 
 # remove NA values
@@ -419,7 +403,7 @@ ggplot(df_average_steps_per_interval,aes(x=Time,y=average.Steps.Per.Interval)) +
     theme(plot.title = element_text(hjust = 0.5))
 ```
 
-![plot of chunk unnamed-chunk-13](figure/unnamed-chunk-13-1.png)
+![plot of chunk chunk-daytype-analysis](figure/chunk-daytype-analysis-1.png)
 
 ```r
 # steps performed during weekend and during weekdays
@@ -457,7 +441,7 @@ kable(df_mean_median, "html",
 The plot and the table indicate that
 
  * The person got up later during the weekends
- * The person performed, on average, a higher number of steps during the weekend (abiout 20%)
+ * The person performed, on average, a higher number of steps during the weekend (about 20%)
  * The pattern is not conclusive in order to answer the question if the person regularly performed some sort of sports that increases the number of steps during the weekends
 
 
