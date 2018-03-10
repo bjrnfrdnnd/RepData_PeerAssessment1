@@ -40,7 +40,7 @@ df$date <- as.Date(df$date);
 df_orig <- df;
 ```
 
-### Histogram of the total number of steps taken each day {#Histogram}
+### Histogram of the total number of steps taken each day
 
 This part of the analysis considers the total number of steps taken each day. For this analysis, we will ignore missing values.
 
@@ -69,8 +69,8 @@ kable(df_mean_median, "html",
     kable_styling(full_width = F)
 ```
 
-### Time series plot of the average number of steps taken {#daily activity pattern}
-We are going to purge the rows containing `NA` from the dataframe as we did in [the Histogram Section](#Histogram). We are also transforming the integer in the `interval` column to a proper POSIXct.
+### Time series plot of the average number of steps taken
+We are going to purge the rows containing `NA` from the dataframe as we did in [the Histogram Section](#Histogram-of-the-total-number-of-steps-taken-each-day). We are also transforming the integer in the `interval` column to a proper POSIXct.
 ```{R chunk-activity-patern-ignoring-missing-data, results="hide", warning=FALSE, message=FALSE}
 require(ggplot2)
 require(dplyr)
@@ -151,7 +151,7 @@ kable(dfLengths, "html",
 
 We can see that missing values always span entire days (multiples of 288 continuous values), at least one day, at most two days. We can furthermore see that missing values always start at multiples of 288, meaning that not only the timespan of an entire day is missing, but actually one entire day as given by date (from 00:00 to 23:55). We conclude that a useful strategy of replacing the missing values is to replace these missing values with some sort of "typical" activity pattern for a day. 
 
-The question is: what is a "typical" activity pattern? We could simply replace the missing values with the average activity pattern as obtained in [the section concerning the daily activity pattern](#daily activity pattern). However, we are going to follow a slightly more complicated method: We are going to replace the missing values with activity patterns that are mean values as given by a weighted sliding values around the missing values. 
+The question is: what is a "typical" activity pattern? We could simply replace the missing values with the average activity pattern as obtained in [the section concerning the daily activity pattern](#Time-series-plot-of-the-average-number-of-steps-taken). However, we are going to follow a slightly more complicated method: We are going to replace the missing values with activity patterns that are mean values as given by a weighted sliding values around the missing values. 
 
 Specifically, we are going to first transform the dataset into a wide form such that each interval (corresponding to the number of steps at the same timepoint during a day) has its own columns. The rows in this dataframe are then the days of observations.
 
@@ -180,7 +180,7 @@ dfWithImputation <- dfLongWithImputation[,c(names(df),"Has been imputed")];
 
 ```
 
-We will now repeat the histogram plot from [the Histogram Section](#Histogram). This time, we are taking the histogram using a dataframe with imputed values.
+We will now repeat the histogram plot from [the Histogram Section](#Histogram-of-the-total-number-of-steps-taken-each-day). This time, we are taking the histogram using a dataframe with imputed values.
 
 ```{R chunk-histogram-with-imputed-data, results="hide", warning=FALSE, message=FALSE}
 require(ggplot2)
